@@ -14,11 +14,14 @@ print(
     f"component={pixhawk.target_component}"
 )
 
+print("Mengirim pesan ke surface computer")
+
 while True:
     try:
         msg = pixhawk.recv_match()
 
         if msg is not None:
+
             packet = msg.get_msgbuf()
 
             companion_to_surface.write(packet)
